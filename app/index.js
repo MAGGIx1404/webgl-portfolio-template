@@ -5,6 +5,7 @@ import Transition from "components/Transitions";
 
 import Home from "pages/Home";
 import About from "pages/About";
+import Work from "pages/Work";
 
 class App {
   constructor() {
@@ -61,7 +62,8 @@ class App {
   createPages() {
     this.pages = {
       Home: new Home(),
-      About: new About()
+      About: new About(),
+      Work: new Work()
     };
     this.page = this.pages[this.template];
     this.page.create();

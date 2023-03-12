@@ -55,6 +55,14 @@ app.get("/about", (req, res) => {
   });
 });
 
+// ===============================
+app.get("/works/:name", (req, res) => {
+  const name = req.params.name;
+  res.render(`pages/works/${name}`, {
+    title: `${name}`
+  });
+});
+
 // ------------------------------------------
 app.listen(port, () => {
   console.log(`Server started at ${port}`);
