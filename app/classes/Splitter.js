@@ -1,8 +1,9 @@
 import SplitText from "vendors/split";
 
 export default class Splitter {
-  constructor({ element, custom = true }) {
+  constructor({ element, custom = true, box = false }) {
     this.custom = custom;
+    this.box = box;
     this.element = element;
     this.chars = [];
     this.words = [];
@@ -24,8 +25,17 @@ export default class Splitter {
     this.lines = this.splitText.lines;
 
     this.chars.forEach((char, index) => {
-      if (!this.custom) return;
-      char.style.transitionDelay = `${index * 0.05}s`;
+      if (this.custom) {
+        char.style.transitionDelay = `${index * 0.05}s`;
+      }
+      if (this.box) {
+        const div = document.createElement("div");
+        div.classList.add("char-box");
+        div.style.transitionDelay = `${index * 0.05}s`;
+        div.innerHTML = char.innerHTML;
+        char.innerHTML = "";
+        char.appendChild(div);
+      }
     });
   }
 }

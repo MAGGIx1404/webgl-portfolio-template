@@ -1,6 +1,7 @@
 import { each } from "lodash";
 
 import Loader from "components/Loader";
+import Transition from "components/Transitions";
 
 import Home from "pages/Home";
 import About from "pages/About";
@@ -10,11 +11,13 @@ class App {
     if (IS_DEVELOPMENT) {
       console.log("All running in development mode🦸🏻🦹🧛...");
     }
+    this.body = document.body;
     this.content = null;
     this.template = null;
     this.pages = {};
     this.page = null;
     this.loader = null;
+    this.transition = document.querySelector(".transition");
 
     this.handleUpdate = this.update.bind(this);
     this.handleOnResize = this.onResize.bind(this);
@@ -22,6 +25,7 @@ class App {
     this.createLoader();
     this.createContent();
     this.createPages();
+    this.createTransition();
     this.addLinkListeners();
     this.addEventListeners();
     this.update();
@@ -40,10 +44,17 @@ class App {
     });
   }
 
+  createTransition() {
+    this.transition = new Transition({
+      element: this.transition
+    });
+  }
+
   onPreloaded() {
     this.loader.destroy();
     this.onResize();
     this.page.show(true);
+    this.body.classList.remove("is-transitioning");
   }
 
   //   pages
@@ -62,7 +73,9 @@ class App {
   // page transitions
   async onChange({ url, push = true }) {
     if (url === window.location.href) return;
+    this.body.classList.add("is-transitioning");
     await this.page.hide();
+    await this.transition.show();
     const res = await window.fetch(url);
     if (res.status === 200) {
       const html = await res.text();
@@ -95,12 +108,12 @@ class App {
         img.classList.add("loaded");
         this.percent = this.loadedImgs / this.imgs.length;
         if (this.percent === 1) {
-          return new Promise((resolve) => {
-            this.page.create();
-            this.onResize();
-            this.addLinkListeners();
+          this.page.create();
+          this.onResize();
+          this.addLinkListeners();
+          await this.transition.hide().then(() => {
             this.page.show();
-            resolve();
+            this.body.classList.remove("is-transitioning");
           });
         }
       };

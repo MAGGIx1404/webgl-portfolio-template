@@ -2,6 +2,8 @@
   @extend %fixed-box;
   height: 100vh;
   z-index: 90;
+  pointer-events: none;
+  user-select: none;
 
   &-slide {
     width: 100%;
@@ -10,6 +12,7 @@
     top: 0;
     left: 0;
     background: $color-theme;
+    transform: scaleY(0);
 
     &:nth-of-type(2) {
       background: $color-bg-dark;

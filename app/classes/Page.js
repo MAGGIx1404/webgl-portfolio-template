@@ -1,6 +1,11 @@
 import each from "lodash/each";
-// import { mapEach } from "utils/dom";
+
+import Text from "Animations/Text";
+import Reveal from "Animations/Reveal";
+
 import Scroll from "components/Scroll";
+
+import { mapEach } from "utils/dom";
 
 export default class Page {
   constructor({ classes, id, element, elements, isScrollable = false }) {
@@ -10,12 +15,15 @@ export default class Page {
     this.id = id;
     this.selector = element;
     this.selectorChildren = {
+      textAnimations: '[data-animation="text"]',
+      revealAnimations: '[data-animation="reveal"]',
       ...elements
     };
     this.scroll = null;
     this.element = element;
     this.elements = {};
     this.isVisible = false;
+    this.animations = [];
 
     this.isScrollable = isScrollable;
   }
@@ -45,6 +53,7 @@ export default class Page {
       }
     });
 
+    this.createAnimations();
     this.createSmoothScroll();
   }
 
@@ -54,6 +63,20 @@ export default class Page {
     }
   }
 
+  createAnimations() {
+    this.texts = mapEach(this.elements.textAnimations, (element) => {
+      return new Text({ element: element });
+    });
+
+    this.animations.push(...this.texts);
+
+    this.reveals = mapEach(this.elements.revealAnimations, (element) => {
+      return new Reveal({ element: element });
+    });
+
+    this.animations.push(...this.reveals);
+  }
+
   /**
    * Page Show Transition
    */
@@ -61,6 +84,9 @@ export default class Page {
     this.onResize();
     this.isVisible = true;
     this.element.classList.add("active");
+    this.animations.forEach((animation) => {
+      animation.createObserver();
+    });
     return Promise.resolve();
   }
 

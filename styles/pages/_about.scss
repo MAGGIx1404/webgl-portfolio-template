@@ -4,12 +4,31 @@
   height: auto;
 
   .big-texts {
-    cursor: pointer;
-
     .line {
       .word {
         &:not(:nth-of-type(1)) {
           margin-left: 6rem;
+        }
+
+        .char {
+          overflow: hidden;
+
+          .char-box {
+            transform: translateX(-110%);
+            transition: all 1.2s $ease-out-expo;
+          }
+        }
+      }
+    }
+
+    &.is-revealed {
+      .line {
+        .word {
+          .char {
+            .char-box {
+              transform: translateX(0);
+            }
+          }
         }
       }
     }
@@ -50,6 +69,12 @@
                 position: relative;
                 overflow: hidden;
 
+                &.is-revealed {
+                  &::after {
+                    transform: scaleX(1);
+                  }
+                }
+
                 .symbol {
                   animation: rotate 3s linear infinite;
                 }
@@ -63,6 +88,9 @@
                   bottom: 0;
                   left: 0;
                   z-index: 1;
+                  transition: all 1.2s $ease-out-expo;
+                  transform: scaleX(0);
+                  transform-origin: left;
                 }
               }
             }

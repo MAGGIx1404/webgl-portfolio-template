@@ -46,7 +46,8 @@ export default class Home extends Page {
   createSplitter() {
     this.splitter = mapEach(this.elements.title, (element) => {
       return new Splitter({
-        element: element
+        element: element,
+        custom: true
       });
     });
   }

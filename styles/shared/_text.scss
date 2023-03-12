@@ -24,3 +24,10 @@
     font-weight: 700;
   }
 }
+
+// text animation
+[data-animation="text"] {
+  .line-box {
+    overflow: hidden;
+  }
+}

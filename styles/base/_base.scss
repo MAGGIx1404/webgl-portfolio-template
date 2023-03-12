@@ -29,6 +29,15 @@ body {
   font-family: $font-text;
   background: $color-bg;
   color: $color-black;
+  pointer-events: all;
+
+  &.is-transitioning {
+    cursor: wait;
+
+    a {
+      cursor: wait !important;
+    }
+  }
 }
 
 h1 {

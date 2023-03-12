@@ -12,22 +12,21 @@ export default class {
     this.target = animationTarget ? element.closest(animationTarget) : element;
 
     this.isVisible = false;
-
-    if ("IntersectionObserver" in window) {
-      this.createObserver();
-
-      this.animateOut();
-    }
   }
 
   createObserver() {
-    this.observer = new IntersectionObserver((entries) => {
-      each(entries, (entry) => {
-        if (!this.isVisible && entry.isIntersecting) {
-          this.animateIn();
-        }
-      });
-    }).observe(this.target);
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        each(entries, (entry) => {
+          if (!this.isVisible && entry.isIntersecting) {
+            this.animateIn();
+          }
+        });
+      },
+      {
+        threshold: 0.5
+      }
+    ).observe(this.target);
   }
 
   animateIn() {

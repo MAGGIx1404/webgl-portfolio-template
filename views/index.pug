@@ -4,7 +4,7 @@ html(lang="en" class=isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "ph
    head
       //- page's head
       include ./partials/head
-   body(data-is-phone=isPhone)
+   body.is-transitioning(data-is-phone=isPhone)
         //-    page's components
         include ./partials/loader
         include ./partials/transition

@@ -29,7 +29,8 @@ export default class About extends Page {
     this.splitter = mapEach(this.elements.bigTexts, (element) => {
       return new Splitter({
         element: element,
-        custom: true
+        custom: true,
+        box: true
       });
     });
   }

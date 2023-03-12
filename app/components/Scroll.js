@@ -21,13 +21,6 @@ export default class Scroll {
 
   init() {
     this.scroll = new Lenis(this.config);
-
-    // this.scroll.on(
-    //   "scroll",
-    //   ({ scroll, limit, velocity, direction, progress }) => {
-    //     console.log({ scroll, limit, velocity, direction, progress });
-    //   }
-    // );
   }
 
   raf(time) {
