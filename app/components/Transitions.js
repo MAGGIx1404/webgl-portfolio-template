@@ -9,5 +9,5 @@ export default class Transition {
 
   show() {}
 
-  hide() {}
+  async hide() {}
 }

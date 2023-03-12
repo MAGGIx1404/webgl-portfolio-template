@@ -17,3 +17,17 @@
     line-height: 1.2;
   }
 }
+
+.title {
+  .char {
+    font-size: 40rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  &-fix {
+    font-size: 40rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+}
