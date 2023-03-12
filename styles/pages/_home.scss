@@ -1,0 +1,61 @@
+.home {
+  @extend %page;
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+
+  &.active {
+    @extend %page--active;
+  }
+
+  &-wrapper {
+    width: 100%;
+    height: 100vh;
+
+    .home-slider {
+      @extend %fixed-box;
+      @extend %flex-column-center-y;
+      height: 100vh;
+      overflow: hidden;
+
+      &-slide {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+        background: $color-black;
+        @extend %grid-center;
+
+        &-link {
+          color: $color-white;
+
+          .char {
+            text-shadow: 0 30rem 0 $color-theme;
+          }
+
+          &:hover {
+            .char {
+              transform: translateY(-100%);
+            }
+          }
+        }
+
+        &-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+
+          video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}

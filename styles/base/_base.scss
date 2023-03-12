@@ -1,0 +1,107 @@
+html {
+  scroll-behavior: initial;
+}
+
+html,
+body {
+  min-height: 100%;
+  height: auto;
+}
+
+html {
+  width: 100%;
+  background: $color-bg;
+  color: $color-black;
+  box-sizing: border-box;
+  font-size: calc(100vw / 1920 * 10);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  @media only screen and (max-width: 812px) {
+    font-size: calc(100vw / 375 * 10) !important;
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-display: swap;
+  font-family: $font-text;
+  background: $color-bg;
+  color: $color-black;
+}
+
+h1 {
+  font-family: $font-title;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  user-select: none;
+  outline: none;
+  -webkit-touch-callout: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:focus {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  outline: none;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  border-radius: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  object-fit: cover;
+  transition: opacity 1s ease;
+}
+
+// utilities
+
+.container {
+  max-width: 95%;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+// wrapper
+.content {
+  position: relative;
+  width: 100%;
+  height: max-content;
+  z-index: 1;
+}

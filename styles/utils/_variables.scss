@@ -1,0 +1,16 @@
+// texts
+$font-text: "MessinaSansWeb", sans-serif;
+$font-title: "Tusker-Grotesk", sans-serif;
+
+// colors
+$color-white: #fff;
+$color-black: #000;
+$color-theme: #fb5eff;
+$color-bg: #edece8;
+$color-bg-dark: #131313;
+
+// custom eases
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+// custom z-indexes
+$z-indexes: ("noscript", "navigation", "content", "canvas");

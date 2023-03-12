@@ -1,0 +1,48 @@
+extends ../index.pug
+
+block variables
+    - var template = "Home"
+
+block body
+    .home
+        //- home bg
+        .home-bg.page-bg
+            img.bg-pic(data-src="/shared/bg.webp", alt="Image")
+        .home-wrapper
+            .home-slider
+                .home-slider-slide
+                    a.home-slider-slide-link.transition-link(href="/")
+                        h1.medium-title CLASH
+                    .home-slider-slide-bg
+                        .home-slider-slide-bg-video-wrapper
+                            video(src="/shared/videos/clash.mp4", autoplay, loop, muted, playsinline)
+                .home-slider-slide
+                    a.home-slider-slide-link.transition-link(href="/")
+                        h1.medium-title NIKE
+                    .home-slider-slide-bg
+                        .home-slider-slide-bg-video-wrapper
+                            video(src="/shared/videos/nike.mp4", autoplay, loop, muted, playsinline)
+                .home-slider-slide
+                    a.home-slider-slide-link.transition-link(href="/")
+                        h1.medium-title HP
+                    .home-slider-slide-bg
+                        .home-slider-slide-bg-video-wrapper
+                            video(src="/shared/videos/hp.mp4", autoplay, loop, muted, playsinline)
+                .home-slider-slide
+                    a.home-slider-slide-link.transition-link(href="/")
+                        h1.medium-title ADIDAS
+                    .home-slider-slide-bg
+                        .home-slider-slide-bg-video-wrapper
+                            video(src="/shared/videos/adidas.mp4", autoplay, loop, muted, playsinline)
+                .home-slider-slide
+                    a.home-slider-slide-link.transition-link(href="/")
+                        h1.medium-title VRBO
+                    .home-slider-slide-bg
+                        .home-slider-slide-bg-video-wrapper
+                            video(src="/shared/videos/vrbo.mp4", autoplay, loop, muted, playsinline)
+                .home-slider-slide
+                    a.home-slider-slide-link.transition-link(href="/")
+                        h1.medium-title MICHEL
+                    .home-slider-slide-bg
+                        .home-slider-slide-bg-video-wrapper
+                            video(src="/shared/videos/michelob.mp4", autoplay, loop, muted, playsinline)

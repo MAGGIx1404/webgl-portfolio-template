@@ -1,0 +1,17 @@
+block variables
+doctype html
+html(lang="en" class=isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : "")
+   head
+      //- page's head
+      include ./partials/head
+   body(data-is-phone=isPhone)
+        //-    page's components
+        include ./partials/loader
+        include ./partials/transition
+        include ./partials/navigation
+
+        //-   page's content
+        .content#content(data-template=template)
+             block body
+
+   script(src="main.js")

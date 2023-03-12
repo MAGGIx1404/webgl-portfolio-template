@@ -1,0 +1,29 @@
+%fixed-box {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+// page wrappers
+
+%page {
+  //   opacity: 0;
+  transition: opacity 1s $ease-out-expo;
+}
+
+%page--active {
+  opacity: 1;
+}
+
+.page-bg {
+  @extend %fixed-box;
+  z-index: -1;
+  opacity: 0.2;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

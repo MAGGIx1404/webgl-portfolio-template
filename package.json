@@ -1,0 +1,76 @@
+{
+  "name": "yash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\"",
+    "backend:build": "node app.mjs",
+    "start": "npm run backend:build",
+    "backend:development": "nodemon app.mjs",
+    "frontend:build": "webpack --progress --config webpack.config.prod.js",
+    "frontend:development": "cross-env NODE_ENV=dev webpack --progress --config webpack.config.dev.js --watch",
+    "test": "node -c *.js",
+    "postinstall": "postcss --use autoprefixer cssnano -o main.css css/*.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "> 0.2%",
+    "not dead",
+    "not op_mini all",
+    "not ie <= 11",
+    "cover 99.5%"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.20.2",
+    "@studio-freight/lenis": "^0.2.28",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^8.2.5",
+    "browser-sync": "^2.27.10",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^7.5.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.14",
+    "file-loader": "^6.2.0",
+    "gsap": "^3.11.3",
+    "html-inline-css-webpack-plugin": "^1.11.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.3",
+    "nodelist-foreach-polyfill": "^1.2.0",
+    "normalize-wheel": "^1.0.1",
+    "postcss-cli": "^10.1.0",
+    "postcss-loader": "^7.0.1",
+    "pug-loader": "^2.4.0",
+    "sass-loader": "^13.1.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "auto-bind": "^5.0.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.2.10",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.21",
+    "pug": "^3.0.2",
+    "splitting": "^1.0.6",
+    "ua-parser-js": "^1.0.32",
+    "unfetch": "^4.2.0"
+  }
+}

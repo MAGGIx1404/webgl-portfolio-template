@@ -1,0 +1,23 @@
+nav.navigation {
+  @extend %fixed-box;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: difference;
+  color: $color-white;
+
+  .container {
+    @extend %flex-row-space-between;
+    padding: 2rem 0;
+
+    a.logo {
+      font-family: $font-title !important;
+      font-size: 4rem;
+      font-weight: 500;
+    }
+
+    .navigations-links {
+      @extend %flex-row-end;
+      gap: 2rem;
+    }
+  }
+}

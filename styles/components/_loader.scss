@@ -1,0 +1,32 @@
+.loader {
+  @extend %fixed-box;
+  height: 100vh;
+  background: $color-bg-dark;
+  color: $color-bg;
+  z-index: 100;
+
+  &-inner {
+    @extend %flex-column-center-y;
+    align-items: center;
+    gap: 2rem;
+    height: 100vh;
+
+    .loader-split-text {
+      font-family: $font-text !important;
+      opacity: 0;
+
+      .char {
+        transform: translateY(100%) scale(0);
+        opacity: 0;
+      }
+    }
+
+    .loader-number-wrapper {
+      overflow: hidden;
+      width: auto;
+      height: auto;
+      position: absolute;
+      bottom: 5rem;
+    }
+  }
+}

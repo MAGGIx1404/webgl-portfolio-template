@@ -1,0 +1,19 @@
+.small-title {
+  font-size: 6rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.medium-title {
+  .char {
+    font-size: 25rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  &-fix {
+    font-size: 25rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+}

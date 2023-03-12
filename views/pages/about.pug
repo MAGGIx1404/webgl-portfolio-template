@@ -1,0 +1,12 @@
+extends ../index.pug
+
+block variables
+    - var template = "About"
+
+block body
+    .about
+        //- about bg
+        .about-bg.page-bg
+            img.bg-pic(data-src="/shared/bg.webp", alt="Image")
+        .about-wrapper
+            h1.medium-title-fix ABOUT PAGE
