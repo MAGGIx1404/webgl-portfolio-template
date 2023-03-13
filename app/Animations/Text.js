@@ -36,6 +36,7 @@ export default class Text extends Animation {
   }
 
   animateIn() {
+    this.element.classList.add("is-animated");
     GSAP.to(this.elements.lines, {
       duration: 1,
       y: 0,
@@ -47,6 +48,7 @@ export default class Text extends Animation {
   }
 
   animateOut() {
+    this.element.classList.add("is-animated");
     GSAP.to(this.elements.lines, {
       y: "100%",
       opacity: 0,

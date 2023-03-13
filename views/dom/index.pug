@@ -5,32 +5,34 @@ mixin template({id, banner, title, content, images})
                 figure.work-banner-figure
                     img.work-banner-figure-img(data-src=`/shared/works/${id}/${banner}.jpg` alt=`${title}'s banner picture`)
             .work-content
-                .work-title-wrapper
-                    h1.work-title.infinite-title.title=title
                 .container
+                    .work-title-wrapper
+                        h1.work-title.infinite-title.title-fix=title
                     .work-content-box
                         p.paragraph= content.info
                         ul.work-info-list
                             if(content.client)
                                 li.work-info-list-item
                                     p.paragraph.bold Client
-                                    p.paragraph= content.client
+                                    p.paragraph.content-info-text(data-animation="text") ✹ #{content.client}
                             if(content.date)
                                 li.work-info-list-item
                                     p.paragraph.bold Date
-                                    p.paragraph= content.date
+                                    p.paragraph.content-info-text(data-animation="text") ✹ #{content.date}
                             if(content.role)
                                 li.work-info-list-item
                                     p.paragraph.bold Role
-                                    p.paragraph= content.role
+                                    each item in content.role
+                                        p.paragraph.content-info-text(data-animation="text") ✹ #{item}
                             if(content.tools)
                                 li.work-info-list-item
                                     p.paragraph.bold Tools
-                                    p.paragraph= content.tools
+                                    each item in content.tools
+                                        p.paragraph.content-info-text(data-animation="text") ✹ #{item}
                             if(content.link)
                                 li.work-info-list-item
                                     p.paragraph.bold Live Demo
-                                    p.paragraph #[a.link(href=`${content.link}` target="_blank") Live Demo]
+                                    p.paragraph #[a.link(href=`${content.link}` target="_blank")=content.link]
             .work-gallery
                 .container
                     each item, index in images
