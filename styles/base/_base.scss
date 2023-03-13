@@ -114,3 +114,7 @@ img {
   height: max-content;
   z-index: 1;
 }
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}

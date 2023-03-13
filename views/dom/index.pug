@@ -1,6 +1,6 @@
 mixin template({id, banner, title, content, images})
     .work
-        .work-wrapper
+        .work-wrapper(data-lenis-prevent)
             .work-banner
                 figure.work-banner-figure
                     img.work-banner-figure-img(data-src=`/shared/works/${id}/${banner}.jpg` alt=`${title}'s banner picture`)
@@ -32,7 +32,7 @@ mixin template({id, banner, title, content, images})
                             if(content.link)
                                 li.work-info-list-item
                                     p.paragraph.bold Live Demo
-                                    p.paragraph #[a.link(href=`${content.link}` target="_blank")=content.link]
+                                    p.paragraph #[a.link.active(href=`${content.link}` target="_blank")=content.link]
             .work-gallery
                 .container
                     each item, index in images

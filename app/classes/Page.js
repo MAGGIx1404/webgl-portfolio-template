@@ -59,7 +59,10 @@ export default class Page {
 
   createSmoothScroll() {
     if (this.isScrollable) {
-      this.scroll = new Scroll();
+      this.scroll = new Scroll({
+        element: this.element,
+        wrapper: this.elements.wrapper
+      });
     }
   }
 

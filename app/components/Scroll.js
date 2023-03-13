@@ -1,26 +1,24 @@
 import Lenis from "@studio-freight/lenis";
 
 export default class Scroll {
-  constructor() {
+  constructor({ element, wrapper }) {
+    this.element = element;
+    this.wrapper = wrapper;
     this.scroll = null;
     this.config = {
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false
+      element: this.wrapper,
+      wrapper: this.element
     };
-
     this.init();
     window.requestAnimationFrame(this.raf.bind(this));
   }
 
   init() {
-    this.scroll = new Lenis(this.config);
+    this.scroll = new Lenis({
+      content: this.config.element
+    });
+    // reset scroll position
+    this.scroll.reset();
   }
 
   raf(time) {

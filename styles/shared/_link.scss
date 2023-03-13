@@ -63,10 +63,9 @@
 .link {
   font-size: 1.5rem;
   font-weight: 400;
-  //   @extend %link;
   @extend %link--hidden;
 
   &.active {
-    @extend %link__line--visible;
+    @extend %link;
   }
 }
