@@ -1,15 +1,14 @@
-html {
-  scroll-behavior: initial;
-}
-
-html,
-body {
-  min-height: 100%;
-  height: auto;
-}
-
-html {
+%scrolljeck {
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  @extend %scrolljeck;
   background: $color-bg;
   color: $color-black;
   box-sizing: border-box;
@@ -23,8 +22,8 @@ html {
 }
 
 body {
-  width: 100%;
-  height: 100%;
+  @extend %scrolljeck;
+  overscroll-behavior: none;
   font-display: swap;
   font-family: $font-text;
   background: $color-bg;
@@ -109,12 +108,5 @@ img {
 
 // wrapper
 .content {
-  position: relative;
-  width: 100%;
-  height: max-content;
-  z-index: 1;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+  @extend %scrolljeck;
 }

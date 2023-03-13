@@ -144,9 +144,39 @@ class App {
   /**
    * Listeners.
    */
+
+  onWheel(event) {
+    if (this.page && this.page.onWheel) {
+      this.page.onWheel(event);
+    }
+  }
+
+  onTouchDown(event) {
+    if (this.page && this.page.onTouchDown) {
+      this.page.onTouchDown(event);
+    }
+  }
+
+  onTouchMove(event) {
+    if (this.page && this.page.onTouchMove) {
+      this.page.onTouchMove(event);
+    }
+  }
+
+  onTouchUp(event) {
+    if (this.page && this.page.onTouchUp) {
+      this.page.onTouchUp(event);
+    }
+  }
+
   addEventListeners() {
     window.addEventListener("resize", this.handleOnResize);
     window.addEventListener("popstate", this.handleOnPopState);
+
+    window.addEventListener("wheel", this.onWheel.bind(this));
+    window.addEventListener("touchstart", this.onTouchDown.bind(this));
+    window.addEventListener("touchmove", this.onTouchMove.bind(this));
+    window.addEventListener("touchend", this.onTouchUp.bind(this));
 
     window.oncontextmenu = this.onContextMenu;
   }

@@ -60,8 +60,7 @@ export default class Page {
   createSmoothScroll() {
     if (this.isScrollable) {
       this.scroll = new Scroll({
-        element: this.element,
-        wrapper: this.elements.wrapper
+        element: this.elements.wrapper
       });
     }
   }
@@ -97,13 +96,11 @@ export default class Page {
    * Page Hide Transition
    */
   async hide() {
-    this.destroy();
     each(this.animations, (animation) => {
       animation.animateOut && animation.animateOut();
     });
     this.element.classList.remove("active");
     this.isVisible = false;
-    if (this.scroll) this.scroll.destroy();
     return Promise.resolve();
   }
 
@@ -111,27 +108,30 @@ export default class Page {
    * Update function for request animation frame
    */
 
-  update() {}
+  update() {
+    if (this.scroll) this.scroll.update();
+  }
 
   /**
    * On Resize event Handler
    */
-  onResize() {}
+  onResize() {
+    if (this.scroll) this.scroll.setLimit();
+  }
 
-  /**
-   * Create and Register common event listeners
-   */
-  addEventListeners() {}
+  onTouchDown(event) {
+    if (this.scroll) this.scroll.onTouchDown(event);
+  }
 
-  /**
-   * Remove event listeners. Call on Page Hide
-   */
-  removeEventListeners() {}
+  onTouchMove(event) {
+    if (this.scroll) this.scroll.onTouchMove(event);
+  }
 
-  /**
-   * Alias of removeEventListener
-   */
-  destroy() {
-    this.removeEventListeners();
+  onTouchUp(event) {
+    if (this.scroll) this.scroll.onTouchUp(event);
+  }
+
+  onWheel(event) {
+    if (this.scroll) this.scroll.onWheel(event);
   }
 }

@@ -1,7 +1,5 @@
 .about {
   @extend %page;
-  width: 100%;
-  height: auto;
 
   .big-texts {
     .line {
@@ -39,9 +37,7 @@
   }
 
   &-wrapper {
-    width: 100%;
-    min-height: 100vh;
-    height: auto;
+    @extend %scroll-wrapper;
 
     .about-contact,
     .about-banner {

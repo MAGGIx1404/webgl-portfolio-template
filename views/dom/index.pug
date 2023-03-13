@@ -1,6 +1,9 @@
 mixin template({id, banner, title, content, images})
     .work
-        .work-wrapper(data-lenis-prevent)
+        //- about bg
+        .about-bg.page-bg
+            canvas.webgl-canvas
+        .work-wrapper
             .work-banner
                 figure.work-banner-figure
                     img.work-banner-figure-img(data-src=`/shared/works/${id}/${banner}.jpg` alt=`${title}'s banner picture`)
@@ -9,7 +12,7 @@ mixin template({id, banner, title, content, images})
                     .work-title-wrapper
                         h1.work-title.infinite-title.title-fix=title
                     .work-content-box
-                        p.paragraph= content.info
+                        p.paragraph(data-animation="text")= content.info
                         ul.work-info-list
                             if(content.client)
                                 li.work-info-list-item
@@ -37,4 +40,4 @@ mixin template({id, banner, title, content, images})
                 .container
                     each item, index in images
                         figure.work-gallery-figure
-                            img.work-gallery-figure-img(data-src=`/shared/works/${id}/${item}.jpg` data-index=`${index}` alt=`${title}'s gallery picture ${index + 1}`)
+                            img.work-gallery-figure-img.webgl-image(data-src=`/shared/works/${id}/${item}.jpg` data-index=`${index}` alt=`${title}'s gallery picture ${index + 1}`)

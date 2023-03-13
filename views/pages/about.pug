@@ -4,11 +4,11 @@ block variables
     - var template = "About"
 
 block body
+    //- about bg
+    .about-bg.page-bg
+        img.bg-pic(data-src="/shared/bg.webp", alt="Image")
     .about
-        //- about bg
-        .about-bg.page-bg
-            img.bg-pic(data-src="/shared/bg.webp", alt="Image")
-        .about-wrapper(data-lenis-prevent)
+        .about-wrapper
             .about-banner
                 .container
                     .about-big-text-box
