@@ -9,9 +9,7 @@
     "start": "npm run backend:build",
     "backend:development": "nodemon app.mjs",
     "frontend:build": "webpack --progress --config webpack.config.prod.js",
-    "frontend:development": "cross-env NODE_ENV=dev webpack --progress --config webpack.config.dev.js --watch",
-    "test": "node -c *.js",
-    "postinstall": "postcss --use autoprefixer cssnano -o main.css css/*.css"
+    "frontend:development": "cross-env NODE_ENV=dev webpack --progress --config webpack.config.dev.js --watch"
   },
   "author": "",
   "license": "ISC",
