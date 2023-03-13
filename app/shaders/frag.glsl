@@ -6,6 +6,9 @@ varying vec2 vUv;
 uniform vec2 uOffset;
 uniform float uAlpha;
 
+uniform vec2 uPlaneSizes;
+uniform vec2 uImageSizes;
+
 void main(){
      vec2 ratio = vec2(
         min((uPlaneSizes.x / uPlaneSizes.y) / (uImageSizes.x / uImageSizes.y), 1.0),

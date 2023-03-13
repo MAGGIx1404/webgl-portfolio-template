@@ -44,30 +44,30 @@ export default class Loader extends Component {
         ease: "back.inOut"
       }
     });
-    // this.showAnimation.to(this.elements.titles, { opacity: 1 });
-    // this.showAnimation.to(this.texts[0].chars, {
-    //   y: "0",
-    //   opacity: 1,
-    //   scale: 1
-    // });
-    // this.showAnimation.to(
-    //   this.texts[1].chars,
-    //   {
-    //     y: "0",
-    //     opacity: 1,
-    //     scale: 1
-    //   },
-    //   "-=0.7"
-    // );
-    // this.showAnimation.to(
-    //   this.texts[2].chars,
-    //   {
-    //     y: "0",
-    //     opacity: 1,
-    //     scale: 1
-    //   },
-    //   "-=0.7"
-    // );
+    this.showAnimation.to(this.elements.titles, { opacity: 1 });
+    this.showAnimation.to(this.texts[0].chars, {
+      y: "0",
+      opacity: 1,
+      scale: 1
+    });
+    this.showAnimation.to(
+      this.texts[1].chars,
+      {
+        y: "0",
+        opacity: 1,
+        scale: 1
+      },
+      "-=0.7"
+    );
+    this.showAnimation.to(
+      this.texts[2].chars,
+      {
+        y: "0",
+        opacity: 1,
+        scale: 1
+      },
+      "-=0.7"
+    );
     this.showAnimation.call(() => {
       each(this.elements.images, (element) => {
         element.src = element.getAttribute("data-src");
@@ -110,41 +110,41 @@ export default class Loader extends Component {
           stagger: 0.03
         }
       });
-      //   this.animateOut.to(this.texts[0].chars, {
-      //     y: "-100%",
-      //     opacity: 0,
-      //     scale: 0
-      //   });
-      //   this.animateOut.to(
-      //     this.texts[1].chars,
-      //     {
-      //       y: "-100%",
-      //       opacity: 0,
-      //       scale: 0
-      //     },
-      //     "-=0.7"
-      //   );
-      //   this.animateOut.to(
-      //     this.texts[2].chars,
-      //     {
-      //       y: "-100%",
-      //       opacity: 0,
-      //       scale: 0
-      //     },
-      //     "-=0.7"
-      //   );
-      //   this.animateOut.to(
-      //     this.elements.numberBox,
-      //     {
-      //       y: "-100%",
-      //       opacity: 0,
-      //       scale: 0
-      //     },
-      //     "-=0.7"
-      //   );
-      //   this.animateOut.to(this.element, {
-      //     scaleY: 0
-      //   });
+      this.animateOut.to(this.texts[0].chars, {
+        y: "-100%",
+        opacity: 0,
+        scale: 0
+      });
+      this.animateOut.to(
+        this.texts[1].chars,
+        {
+          y: "-100%",
+          opacity: 0,
+          scale: 0
+        },
+        "-=0.7"
+      );
+      this.animateOut.to(
+        this.texts[2].chars,
+        {
+          y: "-100%",
+          opacity: 0,
+          scale: 0
+        },
+        "-=0.7"
+      );
+      this.animateOut.to(
+        this.elements.numberBox,
+        {
+          y: "-100%",
+          opacity: 0,
+          scale: 0
+        },
+        "-=0.7"
+      );
+      this.animateOut.to(this.element, {
+        scaleY: 0
+      });
       this.animateOut.call(() => {
         this.emit("completed");
         resolve();

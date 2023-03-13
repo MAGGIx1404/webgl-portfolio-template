@@ -21,13 +21,25 @@ export default class Work extends Page {
 
   create() {
     super.create();
+    this.createWebgl();
   }
 
   createWebgl() {
     this.webgl = new Webgl({
       elements: this.elements.img,
-      canvas: this.elements.canvas
+      canvas: this.elements.canvas,
+      scroll: this.scroll.scroll
     });
+  }
+
+  async show() {
+    this.webgl.show();
+    super.show();
+  }
+
+  async hide() {
+    this.webgl.hide();
+    super.hide();
   }
 
   onResize() {
