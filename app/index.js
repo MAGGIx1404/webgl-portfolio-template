@@ -2,6 +2,7 @@ import { each } from "lodash";
 
 import Loader from "components/Loader";
 import Transition from "components/Transitions";
+import Navigation from "components/Navigation";
 
 import Home from "pages/Home";
 import About from "pages/About";
@@ -12,6 +13,7 @@ class App {
     if (IS_DEVELOPMENT) {
       console.log("All running in development mode🦸🏻🦹🧛...");
     }
+    this.url = window.location.pathname;
     this.body = document.body;
     this.content = null;
     this.template = null;
@@ -26,6 +28,7 @@ class App {
     this.createLoader();
     this.createContent();
     this.createPages();
+    this.createNavigation();
     this.createTransition();
     this.addLinkListeners();
     this.addEventListeners();
@@ -56,6 +59,7 @@ class App {
     this.loader.destroy();
     this.onResize();
     this.page.show(true);
+    this.navigation.onChange(this.template);
     this.body.classList.remove("is-transitioning");
   }
 
@@ -70,7 +74,9 @@ class App {
     this.page.create();
   }
 
-  //   page transition
+  createNavigation() {
+    this.navigation = new Navigation();
+  }
 
   // ----------
   // page transitions
@@ -95,6 +101,7 @@ class App {
       );
       this.content.innerHTML = divContent.innerHTML;
       this.page = this.pages[this.template];
+      this.navigation.onChange(this.template);
       this.preloadingOnPageTransition();
     }
   }
