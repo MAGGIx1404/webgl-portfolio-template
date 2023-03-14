@@ -1,0 +1,39 @@
+extends ../../index.pug
+include ../../dom/index.pug
+
+block variables
+    - var template = "Work"
+
+block body
+    +template({
+        id: "2",
+        title: "NIKE",
+        content: {
+            info: "20 years later, we are who we’ve always been – Witnesses to Lebron James and his never-ending greatness.",
+            client: "School",
+            date: "2019",
+            role:[
+                "Game Design",
+                "Game Development"
+            ],
+            tools: [
+                "Unity",
+                "C#",
+                "Photoshop",
+                "Illustrator"
+            ],
+            link: "www.google.com"
+        },
+        banner: "banner",
+        images: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+        ],
+        next: {
+            id: "3",
+            title: "HP"
+        }
+    })

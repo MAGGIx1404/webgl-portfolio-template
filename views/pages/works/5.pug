@@ -1,0 +1,41 @@
+extends ../../index.pug
+include ../../dom/index.pug
+
+block variables
+    - var template = "Work"
+
+block body
+    +template({
+        id: "5",
+        title: "VRBO",
+        content: {
+            info: "Only Your People” highlights the fact that Vrbo only allows private, whole homes on its site and app, so there are no awkward vacation experiences from sharing space with a stranger.",
+            client: "School",
+            date: "2019",
+            role:[
+                "Game Design",
+                "Game Development"
+            ],
+            tools: [
+                "Unity",
+                "C#",
+                "Photoshop",
+                "Illustrator"
+            ],
+            link: "www.google.com"
+        },
+        banner: "banner",
+        images: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+        ],
+        next: {
+            id: "6",
+            title: "MICHEL"
+        }
+    })

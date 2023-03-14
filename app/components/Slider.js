@@ -335,7 +335,7 @@ export default class Slider {
       scale: this.scale - Math.abs(this.scroll.speed) * 0.005
     });
 
-    this.videoScale = this.hovered ? 2 : 1.5;
+    this.videoScale = this.hovered ? 1.75 : 1.25;
 
     GSAP.to(this.videos, {
       skewX: -this.scroll.speed * 0.5,

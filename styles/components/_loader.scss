@@ -4,6 +4,7 @@
   background: $color-bg-dark;
   color: $color-bg;
   z-index: 100;
+  transform-origin: top left;
 
   &-inner {
     @extend %flex-column-center-y;

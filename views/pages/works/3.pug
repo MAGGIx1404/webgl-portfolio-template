@@ -1,0 +1,40 @@
+extends ../../index.pug
+include ../../dom/index.pug
+
+block variables
+    - var template = "Work"
+
+block body
+    +template({
+        id: "3",
+        title: "HP",
+        content: {
+            info: "Success has certain rules, or at least it used to. Now with HP’s Hybrid tools, the future of work looks a whole lot brighter. Work Happy.",
+            client: "School",
+            date: "2019",
+            role:[
+                "Game Design",
+                "Game Development"
+            ],
+            tools: [
+                "Unity",
+                "C#",
+                "Photoshop",
+                "Illustrator"
+            ],
+            link: "www.google.com"
+        },
+        banner: "banner",
+        images: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+        ],
+        next: {
+            id: "4",
+            title: "ADIDAS"
+        }
+    })

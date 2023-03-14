@@ -47,7 +47,8 @@ class App {
 
   createTransition() {
     this.transition = new Transition({
-      element: this.transition
+      element: this.transition,
+      content: this.content
     });
   }
 

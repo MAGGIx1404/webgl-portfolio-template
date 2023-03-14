@@ -1,4 +1,4 @@
-mixin template({id, banner, title, content, images})
+mixin template({id, banner, title, content, images, next})
     .work
         //- about bg
         .about-bg.page-bg
@@ -42,3 +42,7 @@ mixin template({id, banner, title, content, images})
                     each item, index in images
                         figure.work-gallery-figure
                             img.work-gallery-figure-img.webgl-image(data-src=`/shared/works/${id}/${item}.jpg` data-index=`${index}` alt=`${title}'s gallery picture ${index + 1}`)
+            .work-next
+                figure.next-figure
+                    img.next-picture(data-src=`/shared/works/${next.id}/banner.jpg` alt="Next work banner")
+                a.next-link.medium-title-fix.transition-link(href=`/works/${next.id}`)= next.title

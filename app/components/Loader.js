@@ -15,7 +15,8 @@ export default class Loader extends Component {
         numberBox: ".loader-number",
         number: ".number-text",
         images: document.querySelectorAll("img"),
-        titles: document.querySelectorAll(".loader-split-text")
+        titles: document.querySelectorAll(".loader-split-text"),
+        content: document.querySelector(".content")
       }
     });
 
@@ -106,21 +107,23 @@ export default class Loader extends Component {
       this.animateOut = GSAP.timeline({
         defaults: {
           duration: 0.7,
-          ease: "back.inOut",
           stagger: 0.03
         }
       });
+      this.animateOut.set(this.elements.content, { y: "100%" });
       this.animateOut.to(this.texts[0].chars, {
         y: "-100%",
         opacity: 0,
-        scale: 0
+        scale: 0,
+        ease: "back.inOut"
       });
       this.animateOut.to(
         this.texts[1].chars,
         {
           y: "-100%",
           opacity: 0,
-          scale: 0
+          scale: 0,
+          ease: "back.inOut"
         },
         "-=0.7"
       );
@@ -129,7 +132,8 @@ export default class Loader extends Component {
         {
           y: "-100%",
           opacity: 0,
-          scale: 0
+          scale: 0,
+          ease: "back.inOut"
         },
         "-=0.7"
       );
@@ -138,13 +142,23 @@ export default class Loader extends Component {
         {
           y: "-100%",
           opacity: 0,
-          scale: 0
+          scale: 0,
+          ease: "back.inOut"
         },
         "-=0.7"
       );
       this.animateOut.to(this.element, {
-        scaleY: 0
+        scaleY: 0,
+        ease: "expo.inOut"
       });
+      this.animateOut.to(
+        this.elements.content,
+        {
+          y: "0%",
+          ease: "expo.inOut"
+        },
+        "-=0.7"
+      );
       this.animateOut.call(() => {
         this.emit("completed");
         resolve();

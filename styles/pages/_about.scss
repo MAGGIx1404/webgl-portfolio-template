@@ -93,6 +93,17 @@
             }
           }
         }
+
+        .about-banner-picture-wrapper {
+          align-self: center;
+          width: 100%;
+          height: auto;
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
       }
     }
 

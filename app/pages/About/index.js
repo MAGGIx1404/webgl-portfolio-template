@@ -2,6 +2,8 @@ import Page from "classes/Page";
 
 import Splitter from "classes/Splitter";
 
+import Webgl from "Animations/Webgl";
+
 import { mapEach } from "utils/dom";
 
 export default class About extends Page {

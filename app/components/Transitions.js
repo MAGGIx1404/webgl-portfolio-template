@@ -1,8 +1,9 @@
 import GSAP from "gsap";
 
 export default class Transition {
-  constructor({ element }) {
+  constructor({ element, content }) {
     this.element = element;
+    this.content = content;
 
     this.slides = [...this.element.querySelectorAll(".transition-slide")];
   }
@@ -16,13 +17,20 @@ export default class Transition {
         }
       });
       this.showAnimation.set(this.slides, { transformOrigin: "center bottom" });
-      this.showAnimation.to(this.slides, {
-        scaleY: 1,
-        stagger: 0.1,
-        onComplete: () => {
-          resolve();
-        }
-      });
+      this.showAnimation.set(this.content, { y: "0" });
+      this.showAnimation.to(this.content, { y: "-100%", ease: "expo.inOut" });
+      this.showAnimation.to(
+        this.slides,
+        {
+          scaleY: 1,
+          stagger: 0.1,
+          ease: "expo.inOut",
+          onComplete: () => {
+            resolve();
+          }
+        },
+        "-=1"
+      );
     });
   }
 
@@ -34,14 +42,21 @@ export default class Transition {
           ease: "expo.inOut"
         }
       });
+      this.hideAnimation.set(this.content, { y: "100%" });
       this.hideAnimation.set(this.slides, { transformOrigin: "center top" });
-      this.hideAnimation.to(this.slides, {
-        scaleY: 0,
-        stagger: -0.1,
-        onComplete: () => {
-          resolve();
-        }
-      });
+      this.hideAnimation.to(this.content, { y: "0", ease: "expo.inOut" });
+      this.hideAnimation.to(
+        this.slides,
+        {
+          scaleY: 0,
+          stagger: -0.1,
+          ease: "expo.inOut",
+          onComplete: () => {
+            resolve();
+          }
+        },
+        "-=1"
+      );
     });
   }
 }

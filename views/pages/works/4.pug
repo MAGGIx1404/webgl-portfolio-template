@@ -1,0 +1,40 @@
+extends ../../index.pug
+include ../../dom/index.pug
+
+block variables
+    - var template = "Work"
+
+block body
+    +template({
+        id: "4",
+        title: "ADIDAS",
+        content: {
+            info: "Before you can, you're told you can't. Like Patrick Mahomes, we're all born the original impossible, spending the rest of our lives proving nothing is.",
+            client: "School",
+            date: "2019",
+            role:[
+                "Game Design",
+                "Game Development"
+            ],
+            tools: [
+                "Unity",
+                "C#",
+                "Photoshop",
+                "Illustrator"
+            ],
+            link: "www.google.com"
+        },
+        banner: "banner",
+        images: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+        ],
+        next: {
+            id: "5",
+            title: "VRBO"
+        }
+    })
